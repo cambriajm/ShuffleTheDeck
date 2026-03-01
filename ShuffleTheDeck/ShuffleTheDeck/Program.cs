@@ -1,4 +1,9 @@
 ﻿namespace ShuffleTheDeck
+//Cambria Morgan
+//RCET 2265
+//Spring 2026
+//Shuffle the Deck
+//https://github.com/cambriajm/ShuffleTheDeck.git
 {
     internal class Program
     {
@@ -10,7 +15,7 @@
             int cardCount = 0;
             string userPrompt = "";
              
-            do
+            do // loops drawing cards, allows clear and quit
             {
                 userPrompt = "Welcome to Shuffle the Deck," +
                     "click enter to draw a card\n" +
@@ -53,12 +58,10 @@
             Console.Read();
 
 
-            //pause
-            Console.Read();
         }
 
 
-        static void Display()
+        static void Display() //formatting and number drawing
         {
             int padding = 10;
              
@@ -85,7 +88,7 @@
                 {
                     if (DrawnCards[suit, number -1])
                     {
-                        switch (number)
+                        switch (number)//allows numbers to show properly for cards 
                         {
                             case 1:
                                 prettySymbol = "A";
@@ -104,7 +107,7 @@
                             break;
 
                             default:
-                                prettySymbol = number.ToString(); 
+                                prettySymbol = number.ToString(); //normal numbers normal
                             break;
 
                         }
@@ -122,7 +125,7 @@
             }
 
         }
-            static void DrawnCard()
+            static void DrawnCard()//draws random numbers
             {
                 int letter = 0, number = 0;
                 do
@@ -135,14 +138,14 @@
 
             }
 
-        static private int RandomNumberZeroTo(int max)
+        static private int RandomNumberZeroTo(int max)//fixes number range 
         {
             int range = max + 1; //make max inclusive
             Random rand = new Random();
             return rand.Next(range);
         }
 
-        static void ClearDrawnCards()
+        static void ClearDrawnCards()//clears cards 
         {
             for (int i = 0; i <= 4; i++)
             {
