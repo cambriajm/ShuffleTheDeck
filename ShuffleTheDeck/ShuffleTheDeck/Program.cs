@@ -12,19 +12,19 @@
             string message = "";
             do
             {
-                userPrompt = "Welcome to bingo, enter to draw a ball\n" +
+                userPrompt = "Welcome to Shuffle the Deck,  click enter to draw a card\n" +
                 "q to quit, c to clear";
                 Console.Clear();
                 if (cardCount == 0)
                 {
-                    userPrompt = "Hit enter to get a ball";
-                    DrawnCards();
+                    userPrompt = "Hit enter to get a card";
+                    DrawnCard();
                     cardCount++;
                 }
-                else if (cardCount < 75)
+                else if (cardCount < 52)
                 {
 
-                    DrawnCards();
+                    DrawnCard();
                     cardCount++;
                 }
                 else
@@ -73,12 +73,12 @@
             Console.WriteLine();
 
             // print the rest of the rows
-            for (int number = 1; number <= 15; number++)
+            for (int number = 1; number <= 13; number++)
             {
                 //assemble the row
                 for (int suit = 0; suit < 4; suit++)
                 {
-                    if (DrawnCards[suit, number - 1])
+                    if (DrawnCards[suit, number -1])
                     {
                         prettyNumber = number + (suit * 13); //offset the number by the letter column
                         currentRow += prettyNumber.ToString().PadLeft(padding) + columnSeperator;
@@ -94,6 +94,39 @@
 
             }
 
+        }
+            static void DrawnCard()
+            {
+                int letter = 0, number = 0;
+                do
+                {
+                    letter = RandomNumberZeroTo(4);
+                    number = RandomNumberZeroTo(13);
+                } while (DrawnCards[letter, number]);
 
+                DrawnCards[letter, number] = true;
+
+            }
+
+        static private int RandomNumberZeroTo(int max)
+        {
+            int range = max + 1; //make max inclusive
+            Random rand = new Random();
+            return rand.Next(range);
+        }
+
+        static void ClearDrawnCards()
+        {
+            for (int i = 0; i <= 4; i++)
+            {
+                //assemble the row
+                for (int j = 0; j < 12; j++)
+                {
+                    DrawnCards[i, j] = false;
+
+                }
+
+            }
+        }
     }
 }
