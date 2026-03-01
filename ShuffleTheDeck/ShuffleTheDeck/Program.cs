@@ -9,11 +9,12 @@
             string userInput = "";
             int cardCount = 0;
             string userPrompt = "";
-            string message = "";
+             
             do
             {
-                userPrompt = "Welcome to Shuffle the Deck,  click enter to draw a card\n" +
-                "q to quit, c to clear";
+                userPrompt = "Welcome to Shuffle the Deck," +
+                    "click enter to draw a card\n" +
+                    "q to quit, c to clear";
                 Console.Clear();
                 if (cardCount == 0)
                 {
@@ -59,14 +60,17 @@
 
         static void Display()
         {
-            int padding = 4;
+            int padding = 10;
              
             string prettySymbol = "";
             string placeHolder = "";
+             
             string columnSeperator = "|";
             string currentRow = "";
             //print heading row
-            string[] heading = { "♣", "♦", "♥", "♠" };
+            string[] heading = { "Spade  ", "Heart  ", "Club   ", "Diamond  " };
+             
+
             foreach (string thing in heading)
             {
                 Console.Write(thing.PadLeft(padding) + columnSeperator);
