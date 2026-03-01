@@ -5,7 +5,7 @@
         static bool[,] DrawnCards = new bool[4, 13];
         static void Main(string[] args)
         {
-            Console.WriteLine("CARDS IDK");
+             
             string userInput = "";
             int cardCount = 0;
             string userPrompt = "";
@@ -60,7 +60,8 @@
         static void Display()
         {
             int padding = 4;
-            int prettyNumber = 0;
+             
+            string prettySymbol = "";
             string placeHolder = "";
             string columnSeperator = "|";
             string currentRow = "";
@@ -80,8 +81,30 @@
                 {
                     if (DrawnCards[suit, number -1])
                     {
-                        prettyNumber = number + (suit * 13); //offset the number by the letter column
-                        currentRow += prettyNumber.ToString().PadLeft(padding) + columnSeperator;
+                        switch (number)
+                        {
+                            case 1:
+                                prettySymbol = "A";
+                            break;
+
+                            case 11:
+                                prettySymbol = "J";
+                            break;
+
+                            case 12:
+                                prettySymbol = "Q";
+                            break;
+
+                            case 13:
+                                prettySymbol = "K";
+                            break;
+
+                            default:
+                                prettySymbol = number.ToString(); 
+                            break;
+
+                        }
+                        currentRow += prettySymbol.ToString().PadLeft(padding) + columnSeperator;
                     }
                     else
                     {
