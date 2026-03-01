@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static bool[,] DrawnCards = new bool[5, 15];
+        static bool[,] DrawnCards = new bool[4, 13];
         static void Main(string[] args)
         {
             Console.WriteLine("CARDS IDK");
@@ -62,7 +62,7 @@
             int padding = 4;
             int prettyNumber = 0;
             string placeHolder = "";
-            string columnSeperator = " |";
+            string columnSeperator = "|";
             string currentRow = "";
             //print heading row
             string[] heading = { "♣", "♦", "♥", "♠" };
@@ -100,8 +100,8 @@
                 int letter = 0, number = 0;
                 do
                 {
-                    letter = RandomNumberZeroTo(4);
-                    number = RandomNumberZeroTo(13);
+                    letter = RandomNumberZeroTo(3);
+                    number = RandomNumberZeroTo(12);
                 } while (DrawnCards[letter, number]);
 
                 DrawnCards[letter, number] = true;
